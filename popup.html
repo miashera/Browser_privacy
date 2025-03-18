@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Settings Analyzer</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Privacy Settings Analyzer</h1>
+
+    <div class="toggle-section">
+      <label class="switch">
+        <input type="checkbox" id="privacyToggle">
+        <span class="slider round"></span>
+      </label>
+      <span class="toggle-label">Enable Privacy Analysis</span>
+    </div>
+
+    <div class="tab-container">
+      <div class="tabs">
+        <button class="tab-button active" data-tab="analysis">Analysis</button>
+        <button class="tab-button" data-tab="recommendations">Recommendations</button>
+        <button class="tab-button" data-tab="report">Report</button>
+      </div>
+
+      <div class="tab-content">
+        <div id="analysis" class="tab-pane active">
+          <h2>Privacy Analysis</h2>
+          <div class="loader" id="analysisLoader">Analyzing...</div>
+          <div id="analysisResults" class="results-container">
+            <div class="summary-section">
+              <h3>Summary</h3>
+              <div class="risk-meter">
+                <div class="risk-level" id="overallRiskLevel"></div>
+                <div class="risk-label" id="overallRiskLabel"></div>
+              </div>
+            </div>
+            <div id="detailedAnalysis" class="detailed-section"></div>
+          </div>
+        </div>
+
+        <div id="recommendations" class="tab-pane">
+          <h2>Recommendations</h2>
+          <div id="recommendationsList" class="recommendations-container"></div>
+          <button id="applyRecommendations" class="action-button">Apply Recommended Settings</button>
+        </div>
+
+        <div id="report" class="tab-pane">
+          <h2>Privacy Report</h2>
+          <div id="reportContent" class="report-container"></div>
+          <button id="generateReport" class="action-button">Generate Report</button>
+          <button id="downloadReport" class="action-button">Download Report</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="utils.js"></script>
+  <script src="cvss_calculator.js"></script>
+  <script src="privacy_analyzer.js"></script>
+  <script src="recommendations.js"></script>
+  <script src="report_generator.js"></script>
+  <script src="popup.js"></script>
+</body>
+
+</html>
